@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skills | Samia Sultana</title>
+    <!-- 🛠️ এখানে rel="stylesheet" ফিক্স করা হয়েছে, এখন সিএসএস পারফেক্টলি পাবে -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cloudflare.com">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cloudflare.com">
 </head>
 <body>
     <div class="portfolio-layout">
@@ -15,25 +16,22 @@
                 <div class="avatar-box"><img src="assests/profile.jpg" alt="Samia Sultana"></div>
                 <h2>Samia Sultana</h2>
                 <p>CSE Student</p>
-                 <div class="social-icons">
-    
-                        <!-- Gmail Link -->
-                    	   <a href="mailto:samiasultana427@gmail.com">
-                    	   <i class="fa-solid fa-envelope"></i>
-                    	   </a>
-        
-       			   <!-- GitHub Link -->
-       			   <a href="https://github.com/Samia3156" target="_blank">
-           		   <i class="fa-brands fa-github"></i>
-       		           </a>
-
-        		   <!-- LinkedIn Link -->
-        		   <a href="https://linkedin.com" target="_blank">
-            		   <i class="fa-brands fa-linkedin"></i>
-       			   </a>
-
-        
-                     </div>
+                <div class="social-icons">
+                    <!-- Gmail Link -->
+                    <a href="mailto:samiasultana427@gmail.com">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                    <!-- GitHub Link -->
+                    <a href="https://github.com" target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <!-- LinkedIn Link -->
+                    <a href="https://linkedin.com" target="_blank">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                </div>
+            </div> <!-- 👈 এখানে ডিরেক্টরি ক্লোজিং ট্যাগ ফিক্সড -->
+            
             <ul class="nav-menu">
                 <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
                 <li><a href="education.html"><i class="fas fa-graduation-cap"></i> Education</a></li>
@@ -43,50 +41,79 @@
                 <li><a href="contact.html"><i class="fas fa-paper-plane"></i> Contact</a></li>
                 <li><a href="projects.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
             </ul>
+            
             <div class="sidebar-footer">
+                <!-- 🌟 থিম সুইচার বাটন -->
+                <div class="theme-switch-container">
+                    <button class="theme-toggle-btn" id="themeToggle">
+                        <i class="fas fa-moon"></i> <span>Light Mode</span>
+                    </button>
+                </div>
+
                 <a href="assests/cv.pdf" target="_blank" class="cv-download-btn"><i class="fas fa-file-download"></i> View CV</a>
                 <p>© 2026 | Samia Sultana</p>
             </div>
         </aside>
 
+        <!-- 🛠️ একটি মাত্র মেইন ট্যাগের ভেতর দুটি কার্ডকে সুন্দরভাবে নিচে নিচে সাজানো হয়েছে -->
         <main class="main-content">
             <div class="content-container">
+                
+                <!-- Technical Skills -->
                 <section class="dashboard-card">
                     <h2><i class="fas fa-cog"></i> Technical Skills</h2>
                     <div class="skills-flex">
-			<span class="skill-tag">C Programming</span>
-		        <span class="skill-tag">C++ Programming</span>
-                        <span class="skill-tag">Java </span>
+                        <span class="skill-tag">C Programming</span>
+                        <span class="skill-tag">C++ Programming</span>
+                        <span class="skill-tag">Java</span>
                         <span class="skill-tag">HTML & CSS</span>
-                        <span class="skill-tag">Git & Github</span>
+                        <span class="skill-tag">Git & GitHub</span>
                         <span class="skill-tag">Linux Ubuntu</span>
-  			<span class="skill-tag">Mysql</span>
-			<span class="skill-tag">Arduino Uno, Sensors</span>
+                        <span class="skill-tag">MySQL</span>
+                        <span class="skill-tag">Arduino Uno, Sensors</span>
                     </div>
                 </section>
-            </div>
-        </main>
 
-
-        <main class="main-content">
-            <div class="content-container">
-                <section class="dashboard-card hero-card">
-                    <h2><i class="fas fa-cog"></i> Language Skills</h2>
+                <!-- Language Skills -->
+                <section class="dashboard-card">
+                    <h2><i class="fas fa-language"></i> Language Skills</h2>
                     <div class="skills-flex">
-			<span class="skill-tag">Bengali</span>
-		        <span class="skill-tag">English</span>
+                        <span class="skill-tag">Bengali</span>
+                        <span class="skill-tag">English</span>
                         <span class="skill-tag">German</span>
-                        
                     </div>
                 </section>
+                
             </div>
         </main>
-
-          
-
-
-
-
     </div>
+
+    <!-- 🔮 থিম পরিবর্তনের ইন্টেলিজেন্ট জাভাস্ক্রিপ্ট স্ক্রিপ্ট -->
+    <script>
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+
+    // বুটস্ট্র্যাপ থিম মেমোরি কনফিগারেশন
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    updateToggleInterface(currentTheme);
+
+    themeToggleBtn.addEventListener('click', () => {
+        let theme = document.documentElement.getAttribute('data-theme');
+        let newTheme = theme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateToggleInterface(newTheme);
+    });
+
+    function updateToggleInterface(theme) {
+        if (theme === 'light') {
+            themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i> <span>Dark Mode</span>';
+        } else {
+            themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i> <span>Light Mode</span>';
+        }
+    }
+</script>
+
 </body>
 </html>

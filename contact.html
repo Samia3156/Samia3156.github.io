@@ -16,25 +16,20 @@
                 <div class="avatar-box"><img src="assests/profile.jpg" alt="Samia Sultana"></div>
                 <h2>Samia Sultana</h2>
                 <p>CSE Student</p>
-                  <div class="social-icons">
-    
-                        <!-- Gmail Link -->
-                    	   <a href="mailto:samiasultana427@gmail.com">
-                    	   <i class="fa-solid fa-envelope"></i>
-                    	   </a>
-        
-       			   <!-- GitHub Link -->
-       			   <a href="https://github.com/Samia3156" target="_blank">
-           		   <i class="fa-brands fa-github"></i>
-       		           </a>
-
-        		   <!-- LinkedIn Link -->
-        		   <a href="https://linkedin.com" target="_blank">
-            		   <i class="fa-brands fa-linkedin"></i>
-       			   </a>
-
-        
-                     </div>
+                <div class="social-icons">
+                    <!-- Gmail Link -->
+                    <a href="mailto:samiasultana427@gmail.com">
+                        <i class="fa-solid fa-envelope"></i>
+                    </a>
+                    <!-- GitHub Link -->
+                    <a href="https://github.com/Samia3156" target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <!-- LinkedIn Link -->
+                    <a href="https://linkedin.com" target="_blank">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                </div>
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
@@ -46,6 +41,13 @@
                 <li><a href="projects.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
             </ul>
             <div class="sidebar-footer">
+                <!-- 🌟 থিম সুইচার বাটন এখানে যুক্ত করা হয়েছে -->
+                <div class="theme-switch-container">
+                    <button class="theme-toggle-btn" id="themeToggle">
+                        <i class="fas fa-moon"></i> <span>Light Mode</span>
+                    </button>
+                </div>
+
                 <a href="assests/cv.pdf" target="_blank" class="cv-download-btn"><i class="fas fa-file-download"></i> View CV</a>
                 <p>© 2026 | Samia Sultana</p>
             </div>
@@ -73,5 +75,33 @@
             </div>
         </main>
     </div>
+
+    <!-- 🔮 থিম পরিবর্তনের ইন্টেলিজেন্ট জাভাস্ক্রিপ্ট স্ক্রিপ্ট -->
+    <script>
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+
+    // বুটস্ট্র্যাপ থিম মেমোরি কনফিগারেশন
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    updateToggleInterface(currentTheme);
+
+    themeToggleBtn.addEventListener('click', () => {
+        let theme = document.documentElement.getAttribute('data-theme');
+        let newTheme = theme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateToggleInterface(newTheme);
+    });
+
+    function updateToggleInterface(theme) {
+        if (theme === 'light') {
+            themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i> <span>Dark Mode</span>';
+        } else {
+            themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i> <span>Light Mode</span>';
+        }
+    }
+</script>
+
 </body>
 </html>

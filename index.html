@@ -7,9 +7,13 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cloudflare.com">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    
 </head>
 <body>
+
+
     <div class="portfolio-layout">
+
         <!-- Sidebar Menu (সব পেজে একই থাকবে, শুধু active ক্লাসটি পরিবর্তন হবে) -->
         <aside class="sidebar">
             <div class="sidebar-header">
@@ -46,6 +50,14 @@
                 <li><a href="projects.html"><i class="fas fa-project-diagram"></i> Projects</a></li>
             </ul>
             <div class="sidebar-footer">
+
+<div class="theme-switch-container">
+    <button class="theme-toggle-btn" id="themeToggle">
+        <i class="fas fa-moon"></i> <span>Light Mode</span>
+    </button>
+</div>
+
+
                 <a href="assests/cv.pdf" target="_blank" class="cv-download-btn"><i class="fas fa-file-download"></i> View CV</a>
                 <p>© 2026 | Samia Sultana</p>
             </div>
@@ -79,5 +91,35 @@
             </div>
         </main>
     </div>
+
+<script>
+    const themeToggleBtn = document.getElementById('themeToggle');
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+
+    // বুটস্ট্র্যাপ থিম মেমোরি কনফিগারেশন
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    updateToggleInterface(currentTheme);
+
+    themeToggleBtn.addEventListener('click', () => {
+        let theme = document.documentElement.getAttribute('data-theme');
+        let newTheme = theme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateToggleInterface(newTheme);
+    });
+
+    function updateToggleInterface(theme) {
+        if (theme === 'light') {
+            themeToggleBtn.innerHTML = '<i class="fas fa-sun"></i> <span>Dark Mode</span>';
+        } else {
+            themeToggleBtn.innerHTML = '<i class="fas fa-moon"></i> <span>Light Mode</span>';
+        }
+    }
+</script>
+
+
+
+
 </body>
 </html>
